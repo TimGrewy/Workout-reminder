@@ -1,4 +1,4 @@
-package org.acme;
+package dk.tim.workout;
 
 import io.quarkus.test.junit.QuarkusIntegrationTest;
 

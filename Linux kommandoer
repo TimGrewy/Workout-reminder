@@ -1,0 +1,26 @@
+#Run Quakus på dev pc
+quarkus dev
+
+#Connect to Linux server
+ssh grewy@server
+
+#Build quarkus
+quarkus build
+
+#Copy files to Linux host
+scp -r "C:\Udviker\iws\tutorial\workout-reminder\target" grewy@server:/home/grewy/target
+(Jeg oplevede filerne ikke blev erstattet - lavede en 'rm -r target' for at fjerne mappen)
+
+#Start Quarkus at Linux host - Obs, startes nu med 'crontab -e' listen
+alias startq='java -jar target/quarkus-app/quarkus-run.jar'
+java -jar target/quarkus-app/quarkus-run.jar
+
+
+#Apache
+alias restartapache='sudo systemctl restart apache2'
+sudo systemctl restart apache2
+
+#Connect to PostGres --> BRUG DBEAVER
+psql -h server -p 5432 -U grewy
+#Login as admin
+sudo -u postgres psql
